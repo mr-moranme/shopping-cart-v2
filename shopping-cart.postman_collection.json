@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "3c6b6dbc-0d31-47e6-855a-423c545aacdd",
+		"name": "shopping-cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14198582"
+	},
+	"item": [
+		{
+			"name": "products/byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/getAll",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders/send",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 1,\r\n    \"name\": \"John Fox\",\r\n    \"email\": \"john.fox@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productId\": 10,\r\n      \"productTitle\": \"T-shirt\",\r\n      \"productPrice\": 20.5,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"productId\": 22,\r\n      \"productTitle\": \"Shoes\",\r\n      \"productPrice\": 45.0,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders/byId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payments/send",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 1,\r\n    \"name\": \"Alice Smith\",\r\n    \"email\": \"alice@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productId\": 101,\r\n      \"productTitle\": \"Laptop\",\r\n      \"productPrice\": 999.99,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 202,\r\n      \"productTitle\": \"Mouse\",\r\n      \"productPrice\": 25.50,\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
