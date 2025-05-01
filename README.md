@@ -13,5 +13,6 @@
 	- micro servicio payments
 		- POST payments/send (Envia un pago de pruebas)
 	- micro servicio orders
-		- POST orders/send (Envia una orden)
+		- POST orders/sendOk (Envia una orden OK)
+		- POST orders/sendError (Envia una orden con Error)
 		- GET orders/byId (Consulta una orden)

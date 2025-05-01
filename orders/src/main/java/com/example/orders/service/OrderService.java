@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.common.dto.CustomerDto;
 import com.example.common.dto.OrderDetailDto;
+import com.example.common.dto.ProductDto;
 import com.example.common.model.OrderDetail;
 import com.example.orders.dto.OrderRequestDto;
 import com.example.orders.dto.PaymentRequest;
@@ -28,6 +29,9 @@ public class OrderService {
     @Value("${payments.service.url}") // http://localhost:8083/payments
     private String paymentServiceUrl;
     
+    @Value("${products.service.url}") // http://localhost:8081/products
+    private String productServiceUrl;
+    
 	public String createOrder(OrderRequestDto request) {
         CustomerDto customer = request.getCustomer();
         List<OrderDetailDto> items = request.getItems();
@@ -36,7 +40,13 @@ public class OrderService {
         order.setCustomerId(customer.getId());
         order.setCustomerEmail(customer.getEmail());
 
-        List<OrderDetail> details = items.stream().map(item -> {
+        List<OrderDetail> details = items.stream().map(item -> {        	
+        	// Validate product exists
+        	String url = productServiceUrl + "/" + item.getProductId();
+            ProductDto product = restTemplate.getForObject(url, ProductDto.class);
+            if (product == null) {
+                throw new RuntimeException("Product ID " + item.getProductId() + " not found");
+            }
             OrderDetail detail = new OrderDetail();
             detail.setProductId(item.getProductId());
             detail.setProductTitle(item.getProductTitle());

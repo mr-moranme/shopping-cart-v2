@@ -1,7 +1,9 @@
 package com.example.payments.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +22,11 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity<String> processPayment(@RequestBody PaymentRequestDto request) {
         return ResponseEntity.ok(service.processPayment(request));
+    }
+    
+	@ExceptionHandler
+    protected ResponseEntity<?> handleExceptions(Exception ex) {
+		ex.printStackTrace();
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
