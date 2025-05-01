@@ -1,17 +1,17 @@
 # shopping-cart 
-- Descargue todos los proyectos en un solo workspace
-- Descargue el shoppin-cart postman
+- Descargue todos los proyectos (4) en un solo workspace
+- Descargue el shoppin-cart postman collection
 - Importe en postman el .json
 - Ejecute los tres proyectos:
 	- products
 	- payments
 	- orders
 - En postman se puede probar asi:
-	- Para micro servicio products
+	- micro servicio products
 		- GET products/getAll (Devuelve todos los productos)
 		- GET products/byId (Devuelve solo un producto)
-	- Para micro servicio payments
+	- micro servicio payments
 		- POST payments/send (Envia un pago de pruebas)
-	- Para micro servicio orders
+	- micro servicio orders
 		- POST orders/send (Envia una orden)
 		- GET orders/byId (Consulta una orden)
