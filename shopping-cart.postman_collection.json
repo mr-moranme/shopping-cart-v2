@@ -49,13 +49,41 @@
 			"response": []
 		},
 		{
-			"name": "orders/send",
+			"name": "orders/sendOk",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 1,\r\n    \"name\": \"John Fox\",\r\n    \"email\": \"john.fox@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productId\": 10,\r\n      \"productTitle\": \"T-shirt\",\r\n      \"productPrice\": 20.5,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"productId\": 22,\r\n      \"productTitle\": \"Shoes\",\r\n      \"productPrice\": 45.0,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}\r\n",
+					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 1,\r\n    \"name\": \"John Fox\",\r\n    \"email\": \"john.fox@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"productTitle\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\r\n      \"productPrice\": 109.95,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n      \"productPrice\": 22.3,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders/sendError",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 1,\r\n    \"name\": \"John Fox\",\r\n    \"email\": \"john.fox@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"productTitle\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\r\n      \"productPrice\": 109.95,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"productId\": 22,\r\n      \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n      \"productPrice\": 22.3,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
